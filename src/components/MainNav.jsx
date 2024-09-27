@@ -8,7 +8,7 @@ import './MainNav.css'
 const MainNav = () => {
     const { theme, toggleTheme } = useTheme()
     const { user, signIn, signOut } = useUser()
-    const { total } = useCatchPokemon()
+    const { total, checkout } = useCatchPokemon()
 
     return (
         <Navbar>
@@ -28,7 +28,7 @@ const MainNav = () => {
                         <Button onClick={toggleTheme}>{theme === 'dark' ? '🌞' : '🌕'}</Button>
                     </li>
                     <li className="nav-item">
-                        <Button>total: {total}</Button>
+                        <Button onClick={checkout}>total: {total}</Button>
                     </li>
                     {!user ?
                         <li className="nav-item">

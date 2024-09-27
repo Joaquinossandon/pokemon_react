@@ -1,17 +1,20 @@
 import { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
+import { useUser } from '../context/UserContext';
 
-const Login = ({ signIn, usuario }) => {
+const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { signIn, user: usuario } = useUser()
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        signIn({ email, password });
+        signIn({ username: email, password });
     };
 
     return (
         <Container>
+            <h1 className='text-light'>Iniciar sesión</h1>
             {!usuario ? (
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formBasicEmail">

@@ -8,6 +8,7 @@ import Home from "./pages/Home"
 import Pokemon from "./pages/Pokemon"
 import Profile from "./pages/Profile"
 import { useUser } from "./context/UserContext"
+import Register from "./pages/Register"
 
 function App() {
   const { theme } = useTheme()
@@ -21,6 +22,7 @@ function App() {
         <Route element={<PokemonList />} path="/pokemon-list" />
         <Route element={<Pokemon />} path="/pokemon-list/:idPokemon" />
         <Route element={user ? <Navigate to="/" /> : <Login />} path="/login" />
+        <Route element={user ? <Navigate to="/" /> : <Register />} path="/register" />
         <Route element={user ? <Profile /> : <Navigate to="/login" />} path="/profile" />
         <Route element={<Error404 />} path="*" />
       </Routes>
